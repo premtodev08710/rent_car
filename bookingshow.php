@@ -1,5 +1,5 @@
 
-
+<?php ?>
     <!-- Booking Start -->
     <div class="container-fluid bg-secondary carousel my-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container">
