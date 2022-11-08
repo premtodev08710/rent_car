@@ -109,55 +109,30 @@
 
   <section class="content">
     <div class="container-fluid">
-    <div class="row">
+      <div class="row">
         <div class="col-12">
-          
           <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">รายการประเภทรถยนต์</h3>
-            </div>
-            <div class="col-12" align="right">
-              <table>
-                <tr>
-                  <td width="80%"></td>
-                  <td>
-                    <a href="forminsert_typecar.php" class="btn btn-block btn-primary btn-flat btn-sm"></a>
-                    <button  type="button" class="btn btn-block btn-primary btn-flat btn-sm">Primary </td>
-                </tr>
-              </table>
-            </div>
-
-            <div class="card-body">
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th style="width: 10%">#</th>
-                      <th style="width: 50%">ประเภทรถยนต์</th>
-                      <th style="width: 20%">สถาณะ</th>
-                      <th style="width: 10%">แก้ไข</th>
-                      <th style="width: 10%">ลบ</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1.</td>
-                      <td>Update software</td>
-                      <td>
-                        
-                      </td>
-                      <td> 
-                        <button type="button" class="btn btn-outline-success">แก้ไข</button>
-                      </td>
-                      <td> 
-                        <button type="button" class="btn btn-outline-danger">ลบ</button>
-                      </td>
-                    </tr>
-                    
-                  </tbody>
-                </table>
+            
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">เพิ่มประเภทรถยนต์</h3>
               </div>
-          </div>
-          <!-- /.card -->
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form>
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">ชื่อประเภทรถยนต์</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                  </div> 
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
 
 
           <!-- /.card -->
