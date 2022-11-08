@@ -50,7 +50,7 @@
           <a href="typecar.php" class="nav-link active">
             <i class="nav-icon fas fa-copy"></i>
             <p>
-              รายการประเภทรถยนต์
+              รายการยี่ห้อรถยนต์
               <i class="fas fa-angle-left right"></i>
               <!-- <span class="badge badge-info right">6</span> -->
             </p>
@@ -109,53 +109,72 @@
 
   <section class="content">
     <div class="container-fluid">
-    <div class="row">
+      <div class="row">
         <div class="col-12">
-          
+
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">รายการประเภทรถยนต์</h3>
+              <h3 class="card-title">รายการยี่ห้อรถยนต์</h3>
             </div>
             <div class="col-12" align="right">
               <table>
                 <tr>
                   <td width="80%"></td>
                   <td>
-                    <a href="forminsert_typecar.php" class="btn btn-block btn-primary btn-flat btn-sm"></a>
-                    <button  type="button" class="btn btn-block btn-primary btn-flat btn-sm">Primary </td>
+                    <a href="forminsert_typecar.php" class="btn btn-block btn-primary btn-flat btn-sm">เพิ่ม</a>
+                  </td>
                 </tr>
               </table>
             </div>
 
             <div class="card-body">
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th style="width: 10%">#</th>
-                      <th style="width: 50%">ประเภทรถยนต์</th>
-                      <th style="width: 20%">สถาณะ</th>
-                      <th style="width: 10%">แก้ไข</th>
-                      <th style="width: 10%">ลบ</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1.</td>
-                      <td>Update software</td>
-                      <td>
-                        
-                      </td>
-                      <td> 
-                        <button type="button" class="btn btn-outline-success">แก้ไข</button>
-                      </td>
-                      <td> 
-                        <button type="button" class="btn btn-outline-danger">ลบ</button>
-                      </td>
-                    </tr>
-                    
-                  </tbody>
-                </table>
-              </div>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th style="width: 10%">#</th>
+                    <th style="width: 50%">ยี่ห้อรถยนต์</th>
+                    <th style="width: 20%">สถาณะ</th>
+                    <th style="width: 10%">แก้ไข</th>
+                    <th style="width: 10%">ลบ</th>
+                  </tr>
+                </thead>
+                <?php include 'connectdb.php';
+                $sql = "SELECT * FROM type_car";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                  // output data of each row
+                  while ($row = $result->fetch_assoc()) {
+                ?>
+
+
+                    <tbody>
+                      <tr>
+                        <td><?= $num += 1 ?></td>
+                        <td><?= $row['typecar_name'] ?></td>
+                        <td> <?php if ($row['status'] == 0) {
+                                echo 'ปิดการใช้งาน';
+                              } else {
+                                echo 'เปิดการใช้งาน';
+                              } ?></td>
+                        <td>
+                          <a href="formedit_typecar.php?typecar_id=<?= $row["typecar_id"] ?>" class="btn btn-sm btn-warning" href="">แก้ไข</a>
+                        </td>
+                        <td>
+                          <a class="btn btn-sm btn-danger" onClick="return confirm('ยืนยันการลบ?')" href="delete_typecar.php?typecar_id=<?php echo $row["typecar_id"]; ?>">ลบ</a>
+
+                        </td>
+                      </tr>
+
+                    </tbody>
+                <?php
+                  }
+                } else {
+                  echo "0 results";
+                }
+                ?>
+              </table>
+            </div>
           </div>
           <!-- /.card -->
 

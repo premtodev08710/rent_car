@@ -47,7 +47,7 @@
         </li>
 
         <li class="nav-item">
-          <a href="typecar.php" class="nav-link active">
+          <a href="typecar.php" class="nav-link ">
             <i class="nav-icon fas fa-copy"></i>
             <p>
               รายการประเภทรถยนต์
@@ -58,7 +58,7 @@
 
         </li>
         <li class="nav-item">
-          <a href="car.php" class="nav-link">
+          <a href="car.php" class="nav-link active">
             <i class="nav-icon fas fa-chart-pie"></i>
             <p>
               รายการรถยนต์
@@ -112,19 +112,75 @@
       <div class="row">
         <div class="col-12">
           <div class="card">
-            
+
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">เพิ่มประเภทรถยนต์</h3>
+                <h3 class="card-title">เพิ่มรุ่นรถยนต์</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="insert_typecar.php" method="POST">
+              <form action="insert_car.php" enctype="multipart/form-data" method="POST">
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">ชื่อประเภทรถยนต์</label>
-                    <input type="text" name='typecar_name' class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                  </div> 
+                    <label for="exampleInputEmail1">ชื่อรุ่นรถยนต์</label>
+                    <input type="hidden" name='id' value="<?= $id ?>" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input type="text" name='name' value="<?= $row['name']; ?>" class="form-control" id="exampleInputEmail1" placeholder="">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">ทะเบียนรถยนต์</label>
+                    <input type="text" name='car_id' value="<?= $row['car_id']; ?>" class="form-control" id="exampleInputEmail1" placeholder="">
+                  </div>
+
+                  <div class="form-group">
+                    <label>ยี่ห้อรถยนต์</label>
+                    <select name="typecar_id" class="form-control">
+                      <?php include 'connectdb.php';
+                      $id = $_GET['id'];
+                      $sql1 = "SELECT * FROM type_car where status = 1 ";
+                      $result1 = $conn->query($sql1);
+
+                      if ($result1->num_rows > 0) {
+                        // output data of each row
+                        while ($row1 = $result1->fetch_assoc()) {
+                      ?>
+                          <option value="<?= $row1['typecar_id']; ?>" <?php if ($row1['typecar_id'] == $row['typecar_id']) {
+                                                                        echo 'selected';
+                                                                      } ?>>
+                            <?= $row1['typecar_name']; ?>
+                          </option><?php }
+                                } ?>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label>สถาณะ</label>
+                    <select name="status" class="form-control">
+                      <option value="0" <?php if ($row['status'] == 0) {
+                                          echo 'selected';
+                                        } ?>>
+                        มีคนเช่าแล้ว
+                      </option>
+                      <option value="1" <?php if ($row['status'] == 1) {
+                                          echo 'selected';
+                                        } ?>>
+                        ว่าง
+                      </option>
+
+                    </select>
+                  </div>
+                  <!-- <input type="file" name="fileupload"> -->
+                  <div class="form-group">
+                    <label for="exampleInputFile">File input</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input name="fileupload" type="file" class="custom-file-input" id="exampleInputFile">
+                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text">Upload</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <!-- /.card-body -->
 
@@ -135,13 +191,13 @@
             </div>
 
 
-          <!-- /.card -->
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
         </div>
-        <!-- /.col -->
+        <!-- /.row -->
       </div>
-      <!-- /.row -->
-    </div>
-    <!-- /.container-fluid -->
+      <!-- /.container-fluid -->
   </section>
   <!-- /.content -->
 </div>
