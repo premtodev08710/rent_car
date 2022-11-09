@@ -90,7 +90,7 @@ include 'Admin/connectdb.php' ?>
                         </tr>
                         <tr>
                             <th scope="row">ค่าใช้จ่าย </th>
-                            <td><?= $row['price']?></td>
+                            <td><?= $row['rent_price']?></td>
 
                         </tr>
                         

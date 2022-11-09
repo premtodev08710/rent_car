@@ -51,9 +51,7 @@
             <i class="nav-icon fas fa-copy"></i>
             <p>
               รายการประเภทรถยนต์
-              <i class="fas fa-angle-left right"></i>
-              <!-- <span class="badge badge-info right">6</span> -->
-            </p>
+               </p>
           </a>
 
         </li>
@@ -62,7 +60,6 @@
             <i class="nav-icon fas fa-chart-pie"></i>
             <p>
               รายการรถยนต์
-              <i class="right fas fa-angle-left"></i>
             </p>
           </a>
 
@@ -72,8 +69,8 @@
             <i class="nav-icon fas fa-tree"></i>
             <p>
               รายการเช่ารถยนต์
-              <i class="fas fa-angle-left right"></i>
-            </p>
+              <span class="right badge badge-danger"><?php include 'new.php';?></span>
+  </p>
           </a>
 
         </li>

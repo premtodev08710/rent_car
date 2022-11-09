@@ -36,11 +36,11 @@
         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
         <li class="nav-item menu-open">
-          <a href="#" class="nav-link ">
+          <a href="index.php" class="nav-link ">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard
-              <!-- <i class="right fas fa-angle-left"></i> -->
+              <!-- -->
             </p>
           </a>
 
@@ -51,7 +51,7 @@
             <i class="nav-icon fas fa-copy"></i>
             <p>
               รายการประเภทรถยนต์
-              <i class="fas fa-angle-left right"></i>
+              
               <!-- <span class="badge badge-info right">6</span> -->
             </p>
           </a>
@@ -62,7 +62,7 @@
             <i class="nav-icon fas fa-chart-pie"></i>
             <p>
               รายการรถยนต์
-              <i class="right fas fa-angle-left"></i>
+             
             </p>
           </a>
 
@@ -72,7 +72,7 @@
             <i class="nav-icon fas fa-tree"></i>
             <p>
               รายการเช่ารถยนต์
-              <i class="fas fa-angle-left right"></i>
+              <span class="right badge badge-danger"><?php include 'new.php'; ?></span>
             </p>
           </a>
 
@@ -139,7 +139,7 @@
                   </tr>
                 </thead>
                 <?php include 'connectdb.php';
-                $sql = "SELECT * FROM `car` INNER JOIN type_car on type_car.typecar_id = car.typecar_id;";
+                $sql = "SELECT car.id,car.car_id,car.name,car.car_img,car.price,car.status ,type_car.typecar_id ,type_car.typecar_name FROM `car` INNER JOIN type_car on type_car.typecar_id = car.typecar_id;";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -152,7 +152,7 @@
                         <td><?= $num += 1 ?></td>
                         <td><?= $row['name'] ?></td>
                         <td><?= $row['typecar_name'] ?> </td>
-                        <td><?= $row['car_id'] ?> </td>
+                        <td><?= $row['car_id'].$row['status'] ?> </td>
                         <td><img src="uploads/<?= $row['car_img'] ?>" width="100" alt="" sizes="" srcset="">  <a href="formedit_carimg.php?id=<?= $row["id"] ?>" >แก้ไขรูป</a> </td>
                         <td><?php if ($row['status'] == 0) {
                               echo 'มีคนเช่าแล้ว';

@@ -51,8 +51,7 @@
             <i class="nav-icon fas fa-copy"></i>
             <p>
               รายการประเภทรถยนต์
-              <i class="fas fa-angle-left right"></i>
-              <!-- <span class="badge badge-info right">6</span> -->
+              
             </p>
           </a>
 
@@ -62,7 +61,7 @@
             <i class="nav-icon fas fa-chart-pie"></i>
             <p>
               รายการรถยนต์
-              <i class="right fas fa-angle-left"></i>
+             
             </p>
           </a>
 
@@ -72,7 +71,7 @@
             <i class="nav-icon fas fa-tree"></i>
             <p>
               รายการเช่ารถยนต์
-              <i class="fas fa-angle-left right"></i>
+              <span class="right badge badge-danger"><?php include 'new.php';?></span>
             </p>
           </a>
 
@@ -151,7 +150,10 @@
                                 } ?>
                     </select>
                   </div>
-
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">ราคาต่อวัน</label>
+                    <input type="text" name='price' value="" class="form-control" id="exampleInputEmail1" placeholder="">
+                  </div>
                   <div class="form-group">
                     <label>สถาณะ</label>
                     <select name="status" class="form-control">
