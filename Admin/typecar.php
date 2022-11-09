@@ -1,4 +1,14 @@
+
+<?php session_start();?>
+<?php 
+ 
+if (!$_SESSION["UserID"]){  //check session
+ 
+	  Header("Location: formlogin.php"); //ไม่พบผู้ใช้กระโดดกลับไปหน้า login form 
+ 
+}else{?>
 <?php include 'head.php'; ?>
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="index3.html" class="brand-link">
@@ -14,7 +24,18 @@
         <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <a href="#" class="d-block">Alexander Pierce</a>
+        <a href="#" class="d-block"><?php include 'connectdb.php';
+                                      $sql = "SELECT * FROM user";
+                                      $result = $conn->query($sql);
+
+                                      if ($result->num_rows > 0) {
+                                        // output data of each row
+                                        while ($row = $result->fetch_assoc()) {
+                                          echo $row['Firstname'].' '.$row['Lastname'];
+                                        }
+                                      }
+                                      ?>
+          </a>
       </div>
     </div>
 
@@ -77,7 +98,15 @@
 
         </li>
 
+        <li class="nav-item">
+            <a href="logout.php" class="nav-link">
+              <i class="nav-icon fas fa-power-off"></i>
+              <p>
+                ออกจากระบบ
+              </p>
+            </a>
 
+          </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
@@ -188,4 +217,4 @@
   </section>
   <!-- /.content -->
 </div>
-<?php include 'footer.php'; ?>
+<?php include 'footer.php'; }?>

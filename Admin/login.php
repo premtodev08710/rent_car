@@ -2,14 +2,14 @@
 session_start();
         if(isset($_POST['Username'])){
 				//connection
-                  include("connection.php");
+                  include("connectdb.php");
 				//รับค่า user & password
                   $Username = $_POST['Username'];
                   $Password = md5($_POST['Password']);
 				//query 
                   $sql="SELECT * FROM User Where Username='".$Username."' and Password='".$Password."' ";
 
-                  $result = mysqli_query($con,$sql);
+                  $result = mysqli_query($conn,$sql);
 				
                   if(mysqli_num_rows($result)==1){
 
