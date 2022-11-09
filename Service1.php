@@ -31,7 +31,7 @@
                             บริการรับส่งฟรีภายใน จ. อุบลราชธานี
                             ชำระเป็นเงินสด หรือบัตรเครดิตก็ได้
                             รถทุกคันมี<br> - เบาะหนัง <br>- กล้องมองหลัง <br>- WiFi Internet & GPS นำทาง</p>
-                        <a class="text-secondary border-bottom" href="">Read More</a>
+                        <!-- <a class="text-secondary border-bottom" href="">Read More</a> -->
                     </div>
                 </div>
             </div>
