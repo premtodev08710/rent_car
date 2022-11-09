@@ -48,8 +48,8 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-      $price =  $row['price'] * $summary ;
-      echo $price; 
+      $rent_id =  $row['rent_id'] ;
+  
       $rent_id;
     }
   } else {
@@ -57,7 +57,7 @@ if ($result->num_rows > 0) {
   }
     echo "<script type='text/javascript'>";
     echo"alert('บันทึกสำเร็จ');";
-    echo"window.location = 'index.php?rent=<?=$rent_id?>';";
+    echo"window.location = 'receipt.php?rent=".$rent_id."';";
     echo "</script>";
   } else {
     echo "<script type='text/javascript'>";
