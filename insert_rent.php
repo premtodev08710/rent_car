@@ -46,6 +46,17 @@ VALUES ('$name','$Address','$Tel','$Email','$rental_terms','$car_id',
 '$st_date','$en_date','$summary','$price','0','0')";
 
 if ($conn->query($sql) === TRUE) {
+
+
+  $sql3 = "UPDATE `car` SET `status` = '2' WHERE id = '$car_id';";
+
+if ($conn->query($sql3) === TRUE) {
+  // echo $car_id;
+
+} else {
+  echo "Error: " . $sql3 . "<br>" . $conn->error;
+} 
+
   // echo 1;
   $sql = "SELECT * FROM `rent` INNER JOIN car ON car.id = rent.car_id;";
   $result = $conn->query($sql);

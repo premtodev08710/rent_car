@@ -185,14 +185,16 @@ if (!$_SESSION["UserID"]) {  //check session
                           <td><img src="uploads/<?= $row['car_img'] ?>" width="100" alt="" sizes="" srcset=""> <a href="formedit_carimg.php?id=<?= $row["id"] ?>">แก้ไขรูป</a> </td>
                           <td><?php if ($row['status'] == 0) {
                                 echo 'มีคนเช่าแล้ว';
-                              } else {
+                              } if ($row['status'] == 2) {
+                                echo 'ติดจอง';
+                              } if($row['status'] == 1) {
                                 echo 'ว่าง';
                               } ?> </td>
                           <td>
                             <a href="formedit_car.php?id=<?= $row["id"] ?>" class="btn btn-sm btn-warning">แก้ไข</a>
                           </td>
                           <td>
-                            <a class="btn btn-sm btn-danger" onClick="return confirm('ยืนยันการลบ?')" href="delete_car.php?id=<?php echo $row["id"]; ?>">ลบ</a>
+                            <a class="btn btn-sm btn-danger" onClick="return confirm('ยังไม่ถึงกำหนดรับคืน ยืนยันที่จะรับ?')" href="delete_car.php?id=<?php echo $row["id"]; ?>">ลบ</a>
 
                           </td>
                         </tr>

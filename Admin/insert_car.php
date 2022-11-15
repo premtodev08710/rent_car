@@ -5,6 +5,9 @@ $car_id = $_POST['car_id'];
 $typecar_id = $_POST['typecar_id'];
 $name = $_POST['name'];
 $price = $_POST['price'];
+$color = $_POST['color'];
+$door = $_POST['door'];
+$gear = $_POST['gear'];
 
 $fileupload = $_REQUEST['fileupload']; //รับค่าไฟล์จากฟอร์ม		
 $date = date("d-m-Y"); //กำหนดวันที่และเวลา
@@ -27,8 +30,8 @@ $path_link="uploads/".$newname;
 move_uploaded_file($_FILES['fileupload']['tmp_name'],$path_copy);  	
 	}
 
-$sql = "INSERT INTO `car`( `car_id`, `typecar_id`, `name`, car_img,`status`,`price`) 
-VALUES ('$car_id','$typecar_id','$name','$newname','1','$price')";
+$sql = "INSERT INTO `car`( `car_id`, `typecar_id`, `name`, car_img,`status`,`price`,color,gear,door) 
+VALUES ('$car_id','$typecar_id','$name','$newname','1','$price','$color','$gear','$door')";
 // echo $sql;
 if ($conn->query($sql) === TRUE) {
   // echo 1;

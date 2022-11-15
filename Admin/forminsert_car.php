@@ -155,7 +155,19 @@ if (!$_SESSION["UserID"]) {  //check session
                     </div>
                     <div class="form-group">
                       <label for="exampleInputEmail1">ทะเบียนรถยนต์</label>
-                      <input type="text" name='car_id' value="<?= $row['car_id']; ?>" class="form-control" id="exampleInputEmail1" placeholder="">
+                      <input type="text" name='car_id' value="<?= $row['gear']; ?>" class="form-control" id="exampleInputEmail1" placeholder="">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">เกียร์</label>
+                      <input type="text" name='gear' value="<?= $row['gear']; ?>" class="form-control" id="exampleInputEmail1" placeholder="">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">สี</label>
+                      <input type="text" name='color' value="<?= $row['color']; ?>" class="form-control" id="exampleInputEmail1" placeholder="">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">ประตู</label>
+                      <input type="text" name='door' value="<?= $row['door']; ?>" class="form-control" id="exampleInputEmail1" placeholder="">
                     </div>
 
                     <div class="form-group">
@@ -194,6 +206,11 @@ if (!$_SESSION["UserID"]) {  //check session
                                             echo 'selected';
                                           } ?>>
                           ว่าง
+                        </option>
+                        <option value="2" <?php if ($row['status'] == 2) {
+                                            echo 'selected';
+                                          } ?>>
+                          มีคนเช่าแล้ว
                         </option>
 
                       </select>

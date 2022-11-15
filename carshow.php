@@ -8,7 +8,7 @@
                 <h1 class="mb-5">ที่เปิดให้เช่า</h1>
             </div>
             <div class="row g-4">
-           <?php $sql = "SELECT * FROM `car` INNER JOIN type_car on type_car.typecar_id = car.typecar_id;";
+           <?php $sql = "SELECT car.id,car.car_id,car.name,car.car_img,car.price,car.status ,type_car.typecar_id ,type_car.typecar_name FROM `car` INNER JOIN type_car on type_car.typecar_id = car.typecar_id;";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -27,8 +27,19 @@
                         </div>
                         <div class="bg-light text-center p-4">
                             <h5 class="fw-bold mb-0"> รุ่นรถยนต์ <?= $row['name'] ?></h5>
-                            <small> ยี่ห้อรถยนต์ <?= $row['typecar_name'] ?></small>
-                            <small> ราคาวันละ <?= $row['price'] ?></small>
+                            <small> ยี่ห้อรถยนต์ : <?= $row['typecar_name'] ?></small>
+                            <small> ราคาวันละ : <?= $row['price'] ?></small><br>
+                            <small> สี : <?= $row['color'] ?></small><br>
+                            <small> เกียร์ : <?= $row['gear'] ?></small><br>
+                            <small> ประตู : <?= $row['door'] ?></small>
+                            <br>
+                            <small> สถาณะรถ  : <?php if ($row['status'] == 0) {
+                                echo 'มีคนเช่าแล้ว';
+                              } if ($row['status'] == 2) {
+                                echo 'ติดจอง';
+                              } if ($row['status'] == 1) {
+                                echo 'ว่าง';
+                              } ?></small>
                         </div>
                     </div>
                 </div>

@@ -70,7 +70,7 @@ if (!$_SESSION["UserID"]) {  //check session
             <a href="typecar.php" class="nav-link active">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                รายการประเภทรถยนต์
+                รายการยี่ห้อรถยนต์
               </p>
             </a>
 
@@ -140,15 +140,15 @@ if (!$_SESSION["UserID"]) {  //check session
 
               <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">เพิ่มประเภทรถยนต์</h3>
+                  <h3 class="card-title">เพิ่มยี่ห้อรถยนต์</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
                 <form action="insert_typecar.php" method="POST">
                   <div class="card-body">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">ชื่อประเภทรถยนต์</label>
-                      <input type="text" name='typecar_name' class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                      <label for="exampleInputEmail1">ชื่อยี่ห้อรถยนต์</label>
+                      <input type="text" name='typecar_name' class="form-control" id="exampleInputEmail1" placeholder="">
                     </div>
                   </div>
                   <!-- /.card-body -->

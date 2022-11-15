@@ -148,7 +148,7 @@ if (!$_SESSION["UserID"]){  //check session
               <table>
                 <tr>
                   <td width="80%"></td>
-                  <td><button type="button" class="btn btn-block btn-primary btn-flat btn-sm">Primary </td>
+                  <!-- <td><button type="button" class="btn btn-block btn-primary btn-flat btn-sm">Primary </td> -->
                 </tr>
               </table>
             </div>
@@ -157,15 +157,16 @@ if (!$_SESSION["UserID"]){  //check session
               <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th style="width: 10%">#</th>
+                    <th style="width: 5%">#</th>
                     <th style="width: 30%">ข้อมูลผู้เช่า</th>
-                    <th style="width: 40%">ข้อมูลรถยนต์</th>
-                    <th style="width: 12%">รับคำขอ/รับรถคืน</th>
+                    <th style="width: 30%">ข้อมูลรถยนต์</th>
+                    <th style="width: 10%">ค่าปรับ</th>
+                    <th style="width: 15%">รับคำขอ/รับรถคืน</th>
                     <th style="width: 10%">ลบ</th>
                   </tr>
                 </thead>
                 <?php include 'connectdb.php';
-                $sql  =  "SELECT rent.rent_id,rent.name,rent.Address,rent.Tel ,rent.Email ,rent.st_date ,
+                $sql  =  "SELECT rent.rent_id,rent.fine,rent.name,rent.Address,rent.Tel ,rent.Email ,rent.st_date ,
                 rent.en_date,car.car_id,car.id ,car.price ,rent.day,rent.rent_price ,car.name 
                 AS carname, car.car_img ,rent.statusin,rent.statusour FROM `rent` INNER JOIN car on rent.car_id = car.id;";
 
@@ -174,6 +175,7 @@ if (!$_SESSION["UserID"]){  //check session
                 if ($result->num_rows > 0) {
                   // output data of each row
                   while ($row = $result->fetch_assoc()) {
+                   $en_date = $row['en_date'];
                 ?>
                     <tbody>
                       <tr>
@@ -182,16 +184,30 @@ if (!$_SESSION["UserID"]){  //check session
                         <td>
                           <?= $row['carname'] . '<br/> ทะเบียนรถ : ' . $row['car_id'] . '  ค่าบริการ : ' . $row['rent_price'] . ' บาท  '; ?>
                         </td>
+                        <td>
+                          <?= $row['fine']*5000; ?>
+                        </td>
 
                         <td><?php
                             if ($row['statusin'] == 0) {
                             ?> <a href="update_rent.php?id=<?= $row['id'] ?>&rent_id=<?= $row['rent_id'] ?>"><button type="button" class="btn btn-outline-success">ตอบคำขอ </button></a>
                             <?php   } else {
                               if ($row['statusour'] == 0) {
+                                $finedate  = date('Y-m-d');
+                                      $calculate = strtotime("$finedate") - strtotime("$en_date");
+                                      $summary = floor($calculate / 86400); // 86400 มาจาก 24*360 (1วัน = 24 ชม.)
+                                      echo $summary."<br>";
+                                      echo $$en_date;
+                                    if($summary < 0 ){?>
+                                    <a href="update_rent1.php?id=<?= $row['id'] ?>&rent_id=<?= $row['rent_id'] ?>"> <button type="button" onClick="return confirm('ยืนยันการลบ?')" class="btn btn-outline-primary">รับรถคืน </button></a>
+<?php 
+                                    }else{
 
+                                   
+                                  
                             ?>
                              <a href="update_rent1.php?id=<?= $row['id'] ?>&rent_id=<?= $row['rent_id'] ?>"> <button type="button" class="btn btn-outline-primary">รับรถคืน </button></a>
-                          <?php
+                          <?php }
                               }if($row['statusour']== 1){
                                 echo 'รับรถคืนแล้ว';
                               }
