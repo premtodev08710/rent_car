@@ -41,9 +41,9 @@ if ($result->num_rows > 0) {
 $datetime = date("h:i:sa");
 
 $sql = "INSERT INTO `rent`(  `name`, `Address`, 
-`Tel`, `Email`, `rental_terms`, `car_id`, `st_date`, `en_date`, `day`, `rent_price`,`statusin`,`statusour`) 
+`Tel`, `Email`, `rental_terms`, `car_id`, `st_date`, `en_date`, `day`, `rent_price`,`statusin`,`statusour`,fine) 
 VALUES ('$name','$Address','$Tel','$Email','$rental_terms','$car_id',
-'$st_date','$en_date','$summary','$price','0','0')";
+'$st_date','$en_date','$summary','$price','0','0','0')";
 
 if ($conn->query($sql) === TRUE) {
 
