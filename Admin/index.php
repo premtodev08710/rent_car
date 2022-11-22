@@ -87,7 +87,7 @@ if (!$_SESSION["UserID"]) {  //check session
 
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="rent.php" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>
               <p>
                 รายการเช่ารถยนต์

@@ -99,7 +99,7 @@ $id = $_GET['id'];
                                         <label class="text-white mb-4" for="">ข้อมูลรถ</label>
                                         <br>
                                         <label class="text-white mb-4" for="">รุ่นรถยนต์ : <?= $row['name'] ?></label>
-                                        <img src="<?= $row['car_img'] ?>" width="200" alt="">
+                                        <img src="Admin/uploads/<?= $row['car_img'] ?>" width="200" alt="">
 
                                     </div>
                                     <div class="col-12 col-sm-6">

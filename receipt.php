@@ -22,10 +22,10 @@ include 'Admin/connectdb.php' ?>
                 </a>
                 <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"> </span>
-                </button>
+                </button><?php $car_id = $row['car_id']  ?>
                 <div> <label for="">
                         <h2> เลขคำสั่งจอง <?= $rent_id ?></h2>
-                        <h5>เมื่อเสร็จสิ้นแล้วทางทีมงานจะติดต่อกลับภายใน30นาที <a href="index.php"><button class="btn btn-primary"> ยกเลิกจอง </button></a> <a href="contract.php?rent=<?=$rent_id?>"><button  class="btn btn-outline-secondary"> ทำสัญญา </button></a> </h5>
+                        <h5>เมื่อเสร็จสิ้นแล้วทางทีมงานจะติดต่อกลับภายใน30นาที <a href="delete_rent.php?rent=<?=$rent_id?>&id=<?=$car_id?>"><button class="btn btn-primary"> ยกเลิกจอง </button></a> <a href="contract.php?rent=<?=$rent_id?>"><button  class="btn btn-outline-secondary"> ทำสัญญา </button></a> </h5>
                       
                     </label></div>
 

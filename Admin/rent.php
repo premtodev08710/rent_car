@@ -232,7 +232,7 @@ if (!$_SESSION["UserID"]) {  //check session
                             <a href="contract.php?rent_id=<?= $row['rent_id'] ?>"> <button type="button" class="btn btn-outline-warning">พิมพิ์สัญญา</button></a>
                           </td>
                           <td>
-                            <a href="delete_rent.php?rent_id=<?= $row['rent_id'] ?>"> <button type="button" class="btn btn-outline-danger">ลบ</button></a>
+                            <a href="delete_rent.php?rent_id=<?= $row['rent_id'] ?>&id=<?= $row['id'] ?>"> <button type="button" class="btn btn-outline-danger">ลบ</button></a>
                           </td>
                         </tr>
 

@@ -1,9 +1,9 @@
 <?php
 
-include 'connectdb.php';
+include 'Admin/connectdb.php';
 
 //  $id = $_GET['id'];
- $rent_id = $_GET['rent_id'];
+ $rent_id = $_GET['rent'];
  $car_id = $_GET['id'];
 
 
@@ -12,19 +12,19 @@ include 'connectdb.php';
 if ($conn->query($sql) === TRUE) {
   // echo 1;
   
-  echo "<script type='text/javascript'>";
-  echo "alert('ยกเลืกสำเร็จ');";
-  echo "window.location = 'index.php';";
-  echo "</script>";
+ 
 } else {
   
 }
- $sql1 = "UPDATE `car` SET `status` = '1' WHERE `id` = '$car_id';";
+ $sql1 = "UPDATE `car` SET `status` = '1' WHERE `car_id` = '$car_id';";
 
 if ($conn->query($sql1) === TRUE) {
   // echo 1;
   
- 
+  echo "<script type='text/javascript'>";
+  echo "alert('ยกเลืกสำเร็จ');";
+  echo "window.location = 'index.php';";
+  echo "</script>";
 } else {
   echo "<script type='text/javascript'>";
   echo "alert('error เกิดข้อผิดพลาด !');";
