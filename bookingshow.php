@@ -81,7 +81,7 @@ $id = $_GET['id'];
                 </div>
             </div>
             <?php
-             $sql = "SELECT * FROM `car` INNER JOIN type_car 
+            $sql = "SELECT * FROM `car` INNER JOIN type_car 
                 on type_car.typecar_id = car.typecar_id where id='$id'";
             $result = $conn->query($sql);
 
@@ -92,14 +92,14 @@ $id = $_GET['id'];
                     <div class="col-lg-6">
                         <div class="bg-primary h-100 d-flex flex-column justify-content-center text-center p-5 wow zoomIn" data-wow-delay="0.6s">
                             <h1 class="text-white mb-4">รายละเอียดการเช่ารถ</h1>
-                            <form method="POST" action="insert_rent.php">
+                            <form method="POST" enctype="multipart/form-data" action="admin/insert_rent.php">
                                 <div class="row g-3">
                                     <div class="col-12 ">
-                                        <input type="hidden" name="car_id" value="<?=$id?>" id="">
+                                        <input type="hidden" name="car_id" value="<?= $id ?>" id="">
                                         <label class="text-white mb-4" for="">ข้อมูลรถ</label>
                                         <br>
                                         <label class="text-white mb-4" for="">รุ่นรถยนต์ : <?= $row['name'] ?></label>
-                                        <img src="Admin/uploads/<?= $row['car_img'] ?>" width="200" alt="">
+                                        <img src="<?= $row['car_img'] ?>" width="200" alt="">
 
                                     </div>
                                     <div class="col-12 col-sm-6">
@@ -112,7 +112,7 @@ $id = $_GET['id'];
                                         <div class="date" id="date1" data-target-input="nearest">
                                             <label class="text-white mb-4" for="">สิ้นสุดวันที่</label>
 
-                                            <input type="date" name="en_date"  class="form-control border-0 datetimepicker-input" placeholder="" style="height: 55px;">
+                                            <input type="date" name="en_date" class="form-control border-0 datetimepicker-input" placeholder="" style="height: 55px;">
                                         </div>
                                     </div>
                                     <label class="text-white mb-4" for="">รายละเอียดการเช่า</label>
@@ -124,18 +124,42 @@ $id = $_GET['id'];
                                         <input type="text" name="Address" class="form-control border-0" placeholder="ที่อยู่" style="height: 55px;">
                                     </div>
                                     <div class="col-12 col-sm-6">
-                                        <input type="text" name="Tel"  class="form-control border-0" placeholder="เบอร์โทร์" style="height: 55px;">
+                                        <input type="text" name="Tel" class="form-control border-0" placeholder="เบอร์โทร์" style="height: 55px;">
                                     </div>
                                     <div class="col-12 col-sm-6">
                                         <input type="email" name="Email" class="form-control border-0" placeholder="อีเมล" style="height: 55px;">
                                     </div>
+
+                                    <div class="col-12 col-sm-12">
+                                        <input type="text" name="id_card" class="form-control border-0" placeholder="เลขบัตรประชาชน" style="height: 55px;">
+                                    </div>
+
+                                    <div class="col-12 col-sm-6"><label class="text-white mb-4" for="">วันออกบัตร</label>
+                                        <input type="date" name="st_card" class="form-control border-0" placeholder="" style="height: 55px;">
+                                    </div>
+                                    <div class="col-12 col-sm-6"><label class="text-white mb-4" for="">วันหมดอายุบ้ตร</label>
+                                        <input type="date" name="ed_card" class="form-control border-0" placeholder="" style="height: 55px;">
+                                    </div>
+                                    <div class="form-group">
+                      <label for="exampleInputFile">File input</label>
+                      <div class="input-group">
+                        <div class="custom-file">
+                          <input name="fileupload" type="file" class="custom-file-input" id="exampleInputFile">
+                          <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        </div>
+                        <div class="input-group-append">
+                          <!-- <span class="input-group-text">Upload</span> -->
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <input type="file" name="fileToUpload" id="fileupload"> -->
 
                                     <div class="col-12">
                                         <input type="checkbox" name="rental_terms" value="1" id=""> <label class="text-white mb-4" for="">ข้าพเจ้ายอมรับข้อกำหนด และเงื่อนไขการให้บริการ</label>
                                         <!-- <textarea class="form-control border-0" placeholder="Special Request"></textarea> -->
                                     </div>
                                     <div class="col-12">
-                                        <button class="btn btn-secondary w-100 py-3" type="submit">เช่ารถ</button>
+                                        <button class="btn btn-secondary w-100 py-3" name="submit" type="submit">เช่ารถ</button>
                                     </div>
                                 </div>
                             </form>

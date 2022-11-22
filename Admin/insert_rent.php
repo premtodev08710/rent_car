@@ -1,5 +1,5 @@
 <?php
-include 'Admin/connectdb.php';
+include 'connectdb.php';
 $car_id = $_POST['car_id'];
 $st_date = $_POST['st_date'];
 $en_date = $_POST['en_date'];
@@ -20,7 +20,7 @@ $date = date("d-m-Y"); //กำหนดวันที่และเวลา
 $upload=$_FILES['fileupload'];
 if($upload <> '') {   //not select file
 //โฟลเดอร์ที่จะ upload file เข้าไป 
-$path="Admin/uploads/";  
+$path="uploads/";  
  
 //เอาชื่อไฟล์ที่มีอักขระแปลกๆออก
 	$remove_these = array(' ','`','"','\'','\\','/','_');
@@ -29,13 +29,13 @@ $path="Admin/uploads/";
 	//ตั้งชื่อไฟล์ใหม่โดยเอาเวลาไว้หน้าชื่อไฟล์เดิม
 	$newname = time().'-'.$newname;
 $path_copy=$path.$newname;
-$path_link="Admin/uploads/".$newname;
+$path_link="uploads/".$newname;
  
 //คัดลอกไฟล์ไปเก็บที่เว็บเซริ์ฟเวอร์
 move_uploaded_file($_FILES['fileupload']['tmp_name'],$path_copy);  	
 	}
 
-echo $fileupload.$path_link.'lllll';
+echo $_FILES['fileupload'].'lllll';
 $datestart = $st_date;
 $dateend = $en_date;
 
@@ -97,7 +97,7 @@ if ($conn->query($sql) === TRUE) {
   }
   echo "<script type='text/javascript'>";
   echo "alert('บันทึกสำเร็จ');";
-  // echo "window.location = 'receipt.php?rent=" . $rent_id . "';";
+  echo "window.location = '../receipt.php?rent=" . $rent_id . "';";
   echo "</script>";
 } else {
   echo "<script type='text/javascript'>";
