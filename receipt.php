@@ -25,7 +25,7 @@ include 'Admin/connectdb.php' ?>
                 </button>
                 <div> <label for="">
                         <h2> เลขคำสั่งจอง <?= $rent_id ?></h2>
-                        <h5>เมื่อเสร็จสิ้นแล้วทางทีมงานจะติดต่อกลับภายใน30นาที <a href="index.php"><button>ย้อนกลับ </button></a> </h5>
+                        <h5>เมื่อเสร็จสิ้นแล้วทางทีมงานจะติดต่อกลับภายใน30นาที <a href="index.php"><button class="btn btn-primary"> ยกเลิกจอง </button></a> <a href="contract.php?rent=<?=$rent_id?>"><button  class="btn btn-outline-secondary"> ทำสัญญา </button></a> </h5>
                       
                     </label></div>
 

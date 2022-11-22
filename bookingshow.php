@@ -81,7 +81,7 @@ $id = $_GET['id'];
                 </div>
             </div>
             <?php
-             $sql = "SELECT * FROM `car` INNER JOIN type_car 
+            $sql = "SELECT * FROM `car` INNER JOIN type_car 
                 on type_car.typecar_id = car.typecar_id where id='$id'";
             $result = $conn->query($sql);
 
@@ -95,7 +95,7 @@ $id = $_GET['id'];
                             <form method="POST" action="insert_rent.php">
                                 <div class="row g-3">
                                     <div class="col-12 ">
-                                        <input type="hidden" name="car_id" value="<?=$id?>" id="">
+                                        <input type="hidden" name="car_id" value="<?= $id ?>" id="">
                                         <label class="text-white mb-4" for="">ข้อมูลรถ</label>
                                         <br>
                                         <label class="text-white mb-4" for="">รุ่นรถยนต์ : <?= $row['name'] ?></label>
@@ -112,7 +112,7 @@ $id = $_GET['id'];
                                         <div class="date" id="date1" data-target-input="nearest">
                                             <label class="text-white mb-4" for="">สิ้นสุดวันที่</label>
 
-                                            <input type="date" name="en_date"  class="form-control border-0 datetimepicker-input" placeholder="" style="height: 55px;">
+                                            <input type="date" name="en_date" class="form-control border-0 datetimepicker-input" placeholder="" style="height: 55px;">
                                         </div>
                                     </div>
                                     <label class="text-white mb-4" for="">รายละเอียดการเช่า</label>
@@ -124,12 +124,36 @@ $id = $_GET['id'];
                                         <input type="text" name="Address" class="form-control border-0" placeholder="ที่อยู่" style="height: 55px;">
                                     </div>
                                     <div class="col-12 col-sm-6">
-                                        <input type="text" name="Tel"  class="form-control border-0" placeholder="เบอร์โทร์" style="height: 55px;">
+                                        <input type="text" name="Tel" class="form-control border-0" placeholder="เบอร์โทร์" style="height: 55px;">
                                     </div>
                                     <div class="col-12 col-sm-6">
                                         <input type="email" name="Email" class="form-control border-0" placeholder="อีเมล" style="height: 55px;">
                                     </div>
 
+                                    <div class="col-12 col-sm-12">
+                                        <input type="text" name="id_card" class="form-control border-0" placeholder="เลขบัตรประชาชน" style="height: 55px;">
+                                    </div>
+
+                                    <div class="col-12 col-sm-6"><label class="text-white mb-4" for="">วันออกบัตร</label>
+                                        <input type="date" name="st_card" class="form-control border-0" placeholder="" style="height: 55px;">
+                                    </div>
+                                    <div class="col-12 col-sm-6"><label class="text-white mb-4" for="">วันหมดอายุบ้ตร</label>
+                                        <input type="date" name="ed_card" class="form-control border-0" placeholder="" style="height: 55px;">
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div >
+                                            <label class="text-white mb-4">อัพโหลดบัตรประชาชน</label>
+                                            <div class="input-group">
+                                                <div class="custom-file">
+                                                    <input name="fileupload" type="file" class="custom-file-input" id="exampleInputFile">
+                                                    <!-- <label class="text-white mb-4" for="exampleInputFile">อัพโหลดบัตรประชาชน</label> -->
+                                                </div>
+                                                <div class="input-group-append">
+                                                    <!-- <span class="input-group-text">Upload</span> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-12">
                                         <input type="checkbox" name="rental_terms" value="1" id=""> <label class="text-white mb-4" for="">ข้าพเจ้ายอมรับข้อกำหนด และเงื่อนไขการให้บริการ</label>
                                         <!-- <textarea class="form-control border-0" placeholder="Special Request"></textarea> -->
