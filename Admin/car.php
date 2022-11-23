@@ -181,7 +181,7 @@ if (!$_SESSION["UserID"]) {  //check session
                           <td><?= $num += 1 ?></td>
                           <td><?= $row['name'] ?></td>
                           <td><?= $row['typecar_name'] ?> </td>
-                          <td><?= $row['car_id'] . $row['status'] ?> </td>
+                          <td><?= $row['car_id']?> </td>
                           <td><img src="uploads/<?= $row['car_img'] ?>" width="100" alt="" sizes="" srcset=""> <a href="formedit_carimg.php?id=<?= $row["id"] ?>">แก้ไขรูป</a> </td>
                           <td><?php if ($row['status'] == 0) {
                                 echo 'มีคนเช่าแล้ว';

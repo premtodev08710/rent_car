@@ -8,7 +8,7 @@
                 <h1 class="mb-5">ที่เปิดให้เช่า</h1>
             </div>
             <div class="row g-4">
-           <?php $sql = "SELECT car.id,car.car_id,car.name,car.car_img,car.price,car.status ,type_car.typecar_id ,type_car.typecar_name FROM `car` INNER JOIN type_car on type_car.typecar_id = car.typecar_id;";
+           <?php $sql = "SELECT car.id,car.car_id,car.name,car.color,car.gear,car.door,car.car_img,car.price,car.status ,type_car.typecar_id ,type_car.typecar_name FROM `car` INNER JOIN type_car on type_car.typecar_id = car.typecar_id;";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
