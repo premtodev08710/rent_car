@@ -190,10 +190,14 @@ if (!$_SESSION["UserID"]) {  //check session
                               $finedate  = date('Y-m-d');
                               $calculate = strtotime("$finedate") - strtotime("$en_date");
                               $summary = floor($calculate / 86400); // 86400 มาจาก 24*360 (1วัน = 24 ชม.)
-                              echo $summary * 5000;
+                              if($summary > 1){
+                                 echo $summary * 5000;
+                              }
+                             
                               // echo $en_date;
 
                             } else {
+
                               echo $row['fine'] * 5000;
                             } ?>
                           </td>
